@@ -18,12 +18,6 @@ const EmptyState = ({title,subtitle,buttontitle,buttonlinkedpage}) => {
         <Text className="font-pmedium text-sm text-gray-100">
             {subtitle}
         </Text>
-       
-       <CustomButton
-        title={buttontitle}
-        handlePress={() => router.push(buttonlinkedpage)}
-        containerStyles="w-full my-5"
-       />
     </View>
   )
 }
