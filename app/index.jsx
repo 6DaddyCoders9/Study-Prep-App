@@ -5,8 +5,14 @@ import { SafeAreaView } from "react-native-safe-area-context";
 
 import { images } from "../constants";
 import CustomButton from "../components/CustomButton";
+import { useGlobalContext } from "../context/GlobalProvider";
 
 export default function App() {
+
+  const {isLoading, isLogged } = useGlobalContext();
+
+  if(!isLoading && isLogged ) return <Redirect href="/home"/>
+  
   return (
     <SafeAreaView className="bg-primary h-full">
       <ScrollView contentContainerStyle={{ height: "100%" }}>
@@ -22,11 +28,6 @@ export default function App() {
               Exam Time? Start now with{" "}
               <Text className="text-secondary-200">Study Prep App</Text>
             </Text>
-            {/* <Image
-              source={images.path}
-              className="w-[136px] h-[15px] absolute -bottom-2 -right-8"
-              resizeMode='contain'
-            /> */}
           </View>
 
           <Text className="text-sm font-pregular text-gray-100 mt-7 text-center">
